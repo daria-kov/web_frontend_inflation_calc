@@ -1,0 +1,327 @@
+
+/* ===== ЛЕНТА ===== */
+
+.feed {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  min-height: 420px;
+  height: calc(100vh - 140px);
+  background: #222;
+  color: #fff;
+}
+
+.feed-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.feed-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-height: 100%;
+  gap: 12px;
+}
+
+.feed-left {
+  flex: 1;
+  min-width: 0;
+  padding-right: 10px;
+}
+
+.feed-title {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+  overflow-wrap: anywhere;
+}
+
+.feed-category {
+  color: var(--pink);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.feed-desc {
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 0;
+  max-height: 3.2em;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease;
+}
+
+.feed-desc:not(.feed-desc-expanded)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1.6em;
+  pointer-events: none;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.45));
+}
+
+.feed-desc-expanded {
+  max-height: 1000px;
+}
+
+.more-btn {
+  background: none;
+  border: none;
+  color: var(--pink);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 4px;
+  font-family: inherit;
+}
+
+.feed-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.feed-meta {
+  text-align: right;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.feed-meta b {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.like-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.like-btn svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+  stroke: none;
+}
+
+.like-btn.is-liked svg {
+  fill: var(--pink);
+}
+
+.expand-btn {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.expand-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2.5;
+}
+
+.grid-page {
+  flex: 1;
+  padding: 16px;
+  background: #fff;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: stretch;
+}
+
+.date-input-wrap {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid #bababa;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  height: 46px;
+}
+
+.date-input-wrap:hover,
+.date-input-wrap:focus-within {
+  border-color: var(--pink);
+}
+
+.date-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  padding: 10px 12px 10px 10px;
+  font-size: 15px;
+  color: #929292;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+}
+
+.search-btn {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border: 1.5px solid #bababa;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.search-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: #bababa;
+  fill: none;
+  stroke-width: 2;
+  transition: stroke 0.2s;
+}
+
+.search-btn:hover {
+  background: var(--pink);
+  border-color: var(--pink);
+}
+
+.search-btn:hover svg {
+  stroke: #fff;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.card {
+  position: relative;
+  min-width: 0;
+  background: #fff;
+  border-radius: 20px;
+  padding: 8px;
+  height: 305px;
+  text-decoration: none;
+  color: #000;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: 1.5px solid #ececec;
+  display: block;
+  text-align: initial;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+}
+
+.card img {
+  width: 100%;
+  height: 216px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  background: #ececec;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 12px 0 10px;
+  color: #000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-pills {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.date-pill,
+.like-pill {
+  min-width: 0;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #ececec;
+  color: #929292;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.like-pill svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: var(--pink);
+  stroke-width: 2.5;
+  flex-shrink: 0;
+}
+
+.empty-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #929292;
+  padding: 24px 8px;
+}

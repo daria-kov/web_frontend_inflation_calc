@@ -1,0 +1,161 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --pink: #ff006b;
+  --orange: #ff7900;
+  --yellow: #ffc900;
+  --gray: #ececec;
+  --bg: #ffffff;
+  font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+  color: #000;
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  flex-shrink: 0;
+  background: #fff;
+  padding: 25px;
+  border-bottom: 2px solid #dddddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.logo {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 22px;
+  background: var(--yellow);
+  border-radius: 40px 40px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.logo-mid {
+  width: 28px;
+  height: 16px;
+  background: var(--orange);
+  border-radius: 28px 28px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.logo-in {
+  width: 16px;
+  height: 10px;
+  background: var(--pink);
+  border-radius: 16px 16px 0 0;
+}
+
+.logo-text {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.letter-pink {
+  color: var(--pink);
+}
+
+.letter-orange {
+  color: var(--orange);
+}
+
+.letter-yellow {
+  color: var(--yellow);
+}
+
+.tabbar {
+  flex-shrink: 0;
+  display: flex;
+  background: #fff;
+  border-top: 2px solid #dddddd;
+  padding: 10px;
+  z-index: 2;
+}
+
+.tab {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 0 8px;
+  color: #bababa;
+  text-decoration: none;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.tab svg {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.tab:hover {
+  opacity: 0.7;
+}
+
+.tab.active {
+  color: var(--pink);
+}
+
+.tab-disabled {
+  cursor: default;
+}
+
+.tab-disabled:hover {
+  opacity: 1;
+}
