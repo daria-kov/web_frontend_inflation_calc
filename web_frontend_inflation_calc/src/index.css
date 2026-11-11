@@ -159,3 +159,20 @@ button {
 .tab-disabled:hover {
   opacity: 1;
 }
+
+.tab-action {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tab-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tab-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
